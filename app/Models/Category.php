@@ -11,5 +11,5 @@ class Category extends Model
     protected $fillable =  [
         'name'
     ];
-   protected $dateFormat = 'd-m-Y H:i:s';
+   protected $date = ['created_at','updated_at'];
 }

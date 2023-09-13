@@ -15,7 +15,7 @@ class Contact extends Model
       'phone',
       'category_id'
     ];
-    protected $dateFormat = 'd-m-Y H:i:s';
+    protected $date = ['created_at','updated_at'];
     public function category()
     {
         return $this->belongsTo(Category::class);
