@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactStoreRequest;
 use App\Http\Resources\ContactResource;
-use App\Models\contact;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
