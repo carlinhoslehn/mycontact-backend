@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  id       Int     @id @default(autoincrement()) @db.UnsignedInt
+  name     String?    @db.VarChar(100)
+  contacts contacts[]
+}
+
+model contacts {
+  id          Int      @id @default(autoincrement()) @db.UnsignedInt
+  name        String?     @db.VarChar(100)
+  email       String?     @db.VarChar(100)
+  phone       String?     @db.VarChar(100)
+  category_id Int?     @db.UnsignedInt
+  categories  categories? @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "contacts_categories_FK")
+
+  @@index([category_id], map: "contacts_categories_FK")
+}
